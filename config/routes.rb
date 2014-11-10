@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
+  get 'welcome/about'
   # authentication endpoints
   post 'auth/steam/callback' => 'auth#auth_callback'
   get 'logout' => 'auth#logout'
