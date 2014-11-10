@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dotamatch</title>
+  <title>Dotam atch</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -16,7 +16,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="/">dota<i>recap</i></a>
+    <a class="navbar-brand" href="/">dota<i>match</i></a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,8 +28,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <% if session.key? :user %>
-        <li><a href="/mymatches">Hi <%= session[:user][:nickname] %></a></li>
-        <li><%= image_tag session[:user][:image], class: 'avatar' %></li>
+        <% user = session[:user] %>
+        <li><a href="/mymatches">Hi <%= user['nickname'] %></a></li>
+        <li><%= image_tag user['image'], class: 'avatar' %></li>
         <li><a href="/logout">Logout</a></li>
       <% else %>
         <li><%= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam' %></li>
