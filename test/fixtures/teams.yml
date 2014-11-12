@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pos: 1
+  player: MyString
+  free: false
+  side: false
+
+two:
+  pos: 1
+  player: MyString
+  free: false
+  side: false

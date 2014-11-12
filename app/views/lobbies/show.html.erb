@@ -1,0 +1,68 @@
+
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lobby.name %>
+
+  <strong>Loc:</strong>
+  <%= @lobby.loc %>
+  <strong>Numplayer:</strong>
+  <%= @lobby.numPlayer %>
+  <strong>Skill:</strong>
+  <%= @lobby.skill %>
+</p>
+
+<%= link_to 'Edit', edit_lobby_path(@lobby) %> |
+<%= link_to 'Back', lobbies_path %>
+</div>
+
+<div class="container col-md-6">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>rank</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @teams.each_with_index do |team, pos| %>
+      <% if team.side == true%>
+        <tr>
+          <td><%= pos +1%></td>
+          <td><% if team.free == true %> empty <% end %></td>
+          <td></td>
+        </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="container col-md-6">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>rank</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @teams.each_with_index do |team, pos| %>
+      <% if team.side == false%>
+        <tr>
+          <td><%= team.pos %></td>
+          <td><% if team.free == true %> empty <% end %></td>
+          <td></td>
+        </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,42 @@
+<div class="container center">
+<h1>Create or join a lobby</h1>
+
+<% if session.key? :user %>
+<a href="lobbies/new"><button type="button" class="btn btn-success">New Lobby</button></a>
+<% end %>
+
+<div class="tavola" id="table">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Loc</th>
+      <th>Numplayer</th>
+      <th>Skill Level</th>
+      <th>Positions Available</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lobbies.each do |lobby| %>
+      <tr>
+        <td><%= lobby.name %></td>
+        <td><%= lobby.loc %></td>
+        <td><%= lobby.numPlayer %>/10</td>
+        <td><%= lobby.skill %></td>
+        <td>
+          <% lobby.teams.each do |team| %>
+            <span style= <% if team.free == true %>"color:green" <% else %> "color:red" <% end %>><%=team.pos%></span>
+            <% end %>
+        </td>
+        <% if session.key? :user %>
+        <td><%= link_to 'Enter Lobby', lobby %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+<br>
+</div>

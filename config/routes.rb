@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :lobbies
+
   get 'welcome/index'
-  root 'welcome#index'
+  root 'lobbies#index'
   get 'welcome/about'
   # authentication endpoints
   post 'auth/steam/callback' => 'auth#auth_callback'
