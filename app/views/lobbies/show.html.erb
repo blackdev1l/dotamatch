@@ -1,8 +1,8 @@
 
-<div class="container">
+<div class="container md-5">
 <p id="notice"><%= notice %></p>
 
-<p>
+<h2>
   <strong>Name:</strong>
   <%= @lobby.name %>
 
@@ -12,10 +12,8 @@
   <%= @lobby.numPlayer %>
   <strong>Skill:</strong>
   <%= @lobby.skill %>
-</p>
+</h2>
 
-<%= link_to 'Edit', edit_lobby_path(@lobby) %> |
-<%= link_to 'Back', lobbies_path %>
 </div>
 
 <div class="container col-md-6">
@@ -33,7 +31,7 @@
       <% if team.side == true%>
         <tr>
           <td><%= pos +1%></td>
-          <td><% if team.free == true %> empty <% end %></td>
+          <td><% if team.free == true %> <% link_to "free", update_path, remote: true %> <% else %> <%= team.player %><% end %></td>
           <td></td>
         </tr>
       <% end %>
@@ -57,7 +55,7 @@
       <% if team.side == false%>
         <tr>
           <td><%= team.pos %></td>
-          <td><% if team.free == true %> empty <% end %></td>
+          <td><% if team.free == true %> free <% else %> <%= team.player %><% end %></td>
           <td></td>
         </tr>
       <% end %>

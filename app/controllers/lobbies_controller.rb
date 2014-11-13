@@ -5,6 +5,11 @@ class LobbiesController < ApplicationController
   # GET /lobbies.json
   def index
     @lobbies = Lobby.all
+    @lobbies.each do |lobby|
+      if(lobby.numPlayer == 0)
+        lobby.destroy
+      end
+    end
   end
 
   # GET /lobbies/1
@@ -13,7 +18,11 @@ class LobbiesController < ApplicationController
     @lobby = Lobby.find(params[:id])
     #@teams = Team.find_by(lobby_id: @lobby.id)
     @teams = @lobby.teams
+    session[:user]['position'] = 'lobby'
+    @lobby.numPlayer+=1
+    @lobby.save
   end
+
 
   # GET /lobbies/new
   def new

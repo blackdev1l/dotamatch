@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'lobbies#index'
   get 'welcome/about'
+  get 'teams/:id' , to: 'teams#update'
+
   # authentication endpoints
   post 'auth/steam/callback' => 'auth#auth_callback'
   get 'logout' => 'auth#logout'

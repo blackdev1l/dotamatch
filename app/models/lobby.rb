@@ -4,7 +4,7 @@ class Lobby < ActiveRecord::Base
 
 	def init
 		@lobby = Lobby.last
-		@lobby.numPlayer = 1
+		@lobby.numPlayer = 0
 		for i in 1..5
 	      @lobby.teams.create(pos: i,side: true,free: true)
 	    end
