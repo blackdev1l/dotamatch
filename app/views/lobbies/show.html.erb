@@ -31,7 +31,7 @@
       <% if team.side == true%>
         <tr>
           <td><%= pos +1%></td>
-          <td><% if team.free == true %> <% link_to "free", update_path, remote: true %> <% else %> <%= team.player %><% end %></td>
+          <td><% if team.free == true %> free <% else %> <%= team.player %><% end %></td>
           <td></td>
         </tr>
       <% end %>
